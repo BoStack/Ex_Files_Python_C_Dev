@@ -1,12 +1,20 @@
 # Exercise file for Python for the C# Developer LinkedIn Learning course by Joe Marini
 
+from turtle import title
 
-class Book:
-    def __init__(self, title, author, price):
-        # properties that start with _ are a hint that they should be considered private
+
+class Publication: 
+    def __init__(self , title ,author , price):
         self._title = title
         self._author = author
         self._price = price
+        pass
+
+class Book(Publication):
+    def __init__(self, title, author, price):
+        # properties that start with _ are a hint that they should be considered private
+        super().__init__(title ,author ,price)
+        
 
     # public properties can be indicated with a property decorator
     # this one creates a getter
@@ -41,4 +49,5 @@ b1 = Book("War and Peace", "Leo Tolstoy", 21.95)
 print(b1.title)
 b1.title = "Anna Karenina"
 print(b1.title)
+print(b1.author)
 print(b1.price)
